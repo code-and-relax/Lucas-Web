@@ -1,25 +1,110 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  @font-face {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(./fonts/ArchivoBlack-Regular.ttf) format("woff2");
-  }
-}
-
+/**
+ * .archivo-black-extrabold
+ * 
+ * This class applies a styling to text using the "Archivo Black" font.
+ * It is specifically set to have an extra bold weight (900), which is among the heaviest available weights.
+ * The font style is set to normal, indicating that the text is not italicized.
+ *
+ * Usage: This class is suitable for making standout headings or important calls to action that require extra emphasis.
+ */
 .archivo-black-extrabold {
   font-family: "Archivo Black", sans-serif;
   font-weight: 900;
   font-style: normal;
 }
 
+/**
+ * .archivo-black-bold
+ * 
+ * This class also uses the "Archivo Black" font but with a bold weight (600).
+ * This weight is less than the extrabold version, providing a less intense emphasis while still maintaining strong visibility.
+ * The font style remains normal, without any italicization.
+ *
+ * Usage: Ideal for subheadings or text that needs to be distinct yet not as dominant as the extrabold styling.
+ */
+.archivo-black-bold {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/**
+ * .archivo-black-regular
+ * 
+ * Despite the name suggesting a regular weight, this class is styled with a weight of 900, identical to the .archivo-black-extrabold class.
+ * This might be a misnomer or an error unless specifically intended for design purposes.
+ * It uses the "Archivo Black" font with a normal font style, meaning the text will appear non-italicized.
+ *
+ * Usage: Use this class when strong emphasis is needed, similar to the .archivo-black-extrabold class. 
+ * If a regular weight was intended, review or correction of the font-weight might be necessary.
+ */
 .archivo-black-regular {
   font-family: "Archivo Black", sans-serif;
-  font-weight: 400;
+  font-weight: 900;
   font-style: normal;
+}
+
+/**
+ * p[id^="p-"]
+ * 
+ * This selector targets <p> elements whose id attribute starts with "p-".
+ * It sets up the paragraph for a collapsible functionality by initially hiding the content.
+ * 
+ * - `overflow: hidden` ensures that any content exceeding the element's bounds is not visible.
+ * - `transition`: Applies a 0.5-second transition to `max-height`, `opacity`, and `padding` for smooth animations when toggling visibility.
+ * - `max-height: 0`: Starts the paragraph with a maximum height of 0 to keep it collapsed.
+ * - `opacity: 0`: Makes the paragraph completely transparent initially.
+ * - `padding: 0 10px`: Sets no vertical padding but maintains 10 pixels of horizontal padding to keep the layout consistent.
+ * 
+ * Usage: Useful for creating accordion-style collapsible content sections where paragraphs expand/collapse.
+ */
+ 
+p[id^="p-"] {
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.5s ease;
+  max-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+
+/**
+ * p[id^="p-"].visible
+ * 
+ * This class is added to a <p> element to make it visible.
+ * It adjusts the same properties set in `p[id^="p-"]` to show the content.
+ * 
+ * - `max-height: fit-content`: Allows the paragraph to expand to fit its content, overriding the initial `max-height: 0`.
+ * - `opacity: 1`: Changes the opacity to fully opaque, making the paragraph fully visible.
+ * - `padding: 5px 10px`: Restores vertical padding to 5px while keeping horizontal padding unchanged, providing space around the content.
+ * 
+ * Usage: Add this class dynamically via JavaScript to toggle visibility of the paragraph when interacting with UI elements like buttons or links.
+ */
+p[id^="p-"].visible {
+  max-height: fit-content;
+  opacity: 1;
+  padding: 5px 10px;
+}
+
+/**
+ * h1 img
+ * 
+ * Targets <img> elements within <h1> tags.
+ * - `transition`: Applies a 0.5-second ease transition to the `transform` property, allowing smooth rotation animations.
+ * 
+ * Usage: Typically used to indicate collapsible sections or dropdown menus where an image (often an icon) rotates to show an active or inactive state.
+ */
+h1 img {
+  transition: transform 0.5s ease;
+}
+
+/**
+ * h1.active img
+ * 
+ * This selector targets <img> elements within an <h1> tag marked with the `active` class.
+ * - `transform: rotate(180deg)`: Rotates the image by 180 degrees to signify that the associated section or menu is active/open.
+ * 
+ * Usage: Used to visually communicate that a section has been expanded, commonly seen in FAQs, accordions, or dropdown menus.
+ */
+h1.active img {
+  transform: rotate(180deg);
 }
