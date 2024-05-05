@@ -1,3 +1,9 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
 /**
  * .archivo-black-extrabold
  * 
@@ -44,6 +50,10 @@
   font-style: normal;
 }
 
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
 /**
  * p[id^="p-"]
  * 
@@ -61,8 +71,7 @@
 
 p[id^="p-"] {
   overflow: hidden;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out,
-    padding 0.5s ease;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, padding 0.5s ease;
   max-height: 0;
   opacity: 0;
   padding: 0 10px;

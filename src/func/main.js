@@ -25,16 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Iterate over each header element found to apply further functionality.
   faqHeaders.forEach((header) => {
-    // Within each header, find the child 'img' element which is expected to be the SVG used as a clickable icon.
-    // Create a new annotation for the header which can be shown or hidden based on interactions. The annotation is configured with specific visual properties.
-    const underline = annotate(header, {
-      type: "circle", // Note: this seems incorrect as per your initial request for an underline. This should be 'underline' if that is the intended effect.
-      color: "#0077cc",
-      strokeWidth: 1,
-      padding: 5,
-      animationDuration: 2000,
-    });
-
     // Declare a variable to track the visibility state of the annotation.
     let isUnderlined = false;
 
@@ -48,12 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         paragraph.classList.toggle("visible");
         this.classList.toggle("active");
       }
-      // Toggle the visibility of the annotation based on its current state.
-      if (isUnderlined) {
-        underline.hide();
-      } else {
-        underline.show();
-      }
+
       isUnderlined = !isUnderlined;
     });
   });
