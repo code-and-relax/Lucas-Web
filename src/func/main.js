@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Iterate over each header element found to apply further functionality.
   faqHeaders.forEach((header) => {
     // Within each header, find the child 'img' element which is expected to be the SVG used as a clickable icon.
-    const svg = header.querySelector("img");
     // Create a new annotation for the header which can be shown or hidden based on interactions. The annotation is configured with specific visual properties.
     const underline = annotate(header, {
       type: "circle", // Note: this seems incorrect as per your initial request for an underline. This should be 'underline' if that is the intended effect.
@@ -39,17 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Declare a variable to track the visibility state of the annotation.
     let isUnderlined = false;
 
-    // Add a click event listener to the SVG element.
-    svg.addEventListener("click", () => {
-      // Toggle the visibility of the annotation based on its current state.
-      if (isUnderlined) {
-        underline.hide();
-      } else {
-        underline.show();
-      }
-      isUnderlined = !isUnderlined;
-    });
-
     // Add a click event listener to the header itself to toggle the visibility of associated content.
     header.addEventListener("click", function () {
       // Extract the numeric part of the header's ID to associate it with a corresponding paragraph.
@@ -60,6 +48,13 @@ document.addEventListener("DOMContentLoaded", function () {
         paragraph.classList.toggle("visible");
         this.classList.toggle("active");
       }
+      // Toggle the visibility of the annotation based on its current state.
+      if (isUnderlined) {
+        underline.hide();
+      } else {
+        underline.show();
+      }
+      isUnderlined = !isUnderlined;
     });
   });
 });
